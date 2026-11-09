@@ -1,0 +1,29 @@
+{
+  "name": "personal-703-training-coach",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node scripts/cloudflare.mjs dev --local --ip localhost --port 8787",
+    "build": "node scripts/cloudflare.mjs deploy --dry-run",
+    "deploy": "node scripts/cloudflare.mjs deploy",
+    "check": "tsc --noEmit && node --test lib/model.test.ts",
+    "test:integration": "node scripts/integration.mjs",
+    "db:generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "1.2.4",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20260515.1",
+    "@types/node": "22.19.19",
+    "drizzle-kit": "0.31.10",
+    "drizzle-orm": "0.45.2",
+    "typescript": "5.9.3",
+    "wrangler": "4.92.0"
+  }
+}

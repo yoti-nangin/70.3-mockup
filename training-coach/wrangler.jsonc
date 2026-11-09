@@ -1,0 +1,43 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "personal-703-coach",
+  "main": "worker/personal.ts",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "APP_ORIGIN": "https://personal-703-coach.thio-training.workers.dev"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "personal-703-training",
+      "database_id": "96617089-d7d6-4289-b04a-9c61253bd9b7",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "80085e9bc42b40d79646af21f00b9d6a"
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "LOGIN_LIMIT",
+      "namespace_id": "7032026",
+      "simple": {
+        "limit": 30,
+        "period": 60
+      }
+    }
+  ],
+  "observability": {
+    "enabled": false
+  },
+  "account_id": "007bc093cf5ddb8cc0ba1d605ef05086"
+}
